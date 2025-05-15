@@ -11,17 +11,17 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-public function index(Request $request)
+    public function index(Request $request)
     {
         $query = Product::with('category');
-        
+
         if ($request->has('category_id') && $request->category_id != '') {
             $query->where('category_id', $request->category_id);
         }
-        
+
         $products = $query->paginate(5);
         $categories = Category::all();
-        
+
         return view('products.index', compact('products', 'categories'));
     }
 
@@ -31,7 +31,8 @@ public function index(Request $request)
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.AddProduct', compact('categories'));
     }
 
     /**
