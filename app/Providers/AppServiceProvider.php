@@ -25,10 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Use Bootstrap for pagination
+        
         Paginator::useBootstrap();
         
-        // Flash messages partial
+
         Blade::include('partials.messages', 'messages');
     }
 }
