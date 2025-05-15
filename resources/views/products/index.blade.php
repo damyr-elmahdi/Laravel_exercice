@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <form action="{{ route('products.index') }}" method="GET" class="row g-3">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="category_id" class="form-label">Category</label>
                     <select name="category_id" id="category_id" class="form-select">
                         <option value="">All Categories</option>
@@ -27,11 +27,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-4">
-                    <label for="search" class="form-label">Search Product</label>
-                    <input type="text" name="search" id="search" class="form-control" value="{{ request('search') }}" placeholder="Search by name...">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label class="form-label">&nbsp;</label>
                     <div>
                         <button type="submit" class="btn btn-primary">Filter</button>

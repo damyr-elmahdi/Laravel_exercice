@@ -67,8 +67,9 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Product::findOrFail($id);
+        $categories = Category::all();
 
-        return view('products.edit', compact('product'));
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -87,13 +88,7 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $products = Product::where('name', 'LIKE', "%{$query}%")->get();
 
-        return view('products.index', compact('products'));
-    }
     /**
      * Remove the specified resource from storage.
      */
